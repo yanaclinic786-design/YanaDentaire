@@ -1,0 +1,3 @@
+import {createFileRoute} from '@tanstack/react-router';import {pageHead} from '@/lib/clinic';import {PageTop,ServiceGrid} from '@/components/clinic/shared';import {CTA} from '@/components/clinic/layout';
+export const Route=createFileRoute('/services/')({head:()=>pageHead("Dental Treatments in Noida | Yana's Dentaire","Explore implants, root canal, braces, whitening and family dental care at Yana's Dentaire, Sector 105, Noida.",'/services'),component:Services});
+function Services(){return <><PageTop title="Care for every smile." description="Explore dental treatments at Yana's Dentaire in Sector 105, Noida. Your consultation helps identify the right approach for you."/><section className="section"><div className="container-clinic"><ServiceGrid/></div></section><CTA/></>}

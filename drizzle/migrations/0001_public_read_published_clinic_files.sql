@@ -1,0 +1,1 @@
+CREATE POLICY "Published clinic files can be viewed" ON storage.objects FOR SELECT TO anon USING(bucket_id='clinic-media' AND EXISTS(SELECT 1 FROM public.clinic_media m WHERE m.path=storage.objects.name));
