@@ -48,8 +48,8 @@ export const Route = createFileRoute("/")({
   loader: ({ context }) => context.queryClient.ensureQueryData(contentQuery),
   head: () =>
     pageHead(
-      "Dentist in Noida Sector 105 | Yana's Dentaire",
-      "Visit Yana’s Dentaire, a dental clinic and implant centre in Sector 105, Noida. Explore treatments and request an appointment.",
+      "Dentist in Noida | Yana's Dentaire, Sector 105",
+      "Looking for the best dentist in Noida? Visit Yana’s Dentaire, a dental clinic in Sector 105. Explore treatments and request an appointment.",
       "/",
       { faq: faqs },
     ),
@@ -90,13 +90,13 @@ function Home() {
           <div className="home-hero-copy reveal">
             <Eyebrow>Your neighbourhood dentist in Sector 105</Eyebrow>
             <h1 className="home-hero-title">
-              A little care.
+              Dentist in Noida
               <br />
-              <span>A brighter smile.</span>
+              <span>Thoughtful care.</span>
             </h1>
             <p className="home-hero-description">
-              Thoughtful dental care, personal to you. At Yana’s Dentaire, every visit starts with a
-              conversation — and a plan that feels right.
+              Looking for a dentist in Noida? Yana’s Dentaire is a dental clinic in Sector 105,
+              where every visit starts with a conversation and a plan that feels right for you.
             </p>
             <div className="hero-actions home-hero-actions">
               <Button size="lg" asChild>
@@ -151,6 +151,7 @@ function Home() {
                     height="1800"
                     alt=""
                     fetchPriority="high"
+                    decoding="async"
                   />
                   <video
                     className="hero-image home-hero-video"
@@ -172,6 +173,7 @@ function Home() {
                   height="1800"
                   alt={hero.caption || "A view inside Yana’s Dentaire"}
                   fetchPriority="high"
+                  decoding="async"
                 />
               ) : (
                 <div className="home-hero-slides" aria-live="off">
@@ -185,6 +187,8 @@ function Home() {
                       alt={index === activeSlide ? slide.alt : ""}
                       aria-hidden={index !== activeSlide}
                       fetchPriority={index === 0 ? "high" : "auto"}
+                      loading={index === 0 ? "eager" : "lazy"}
+                      decoding="async"
                     />
                   ))}
                 </div>
@@ -315,6 +319,11 @@ function Home() {
             <Button asChild variant="link" className="mt-5 px-0">
               <Link to="/about">
                 Meet your dentists <ArrowRight />
+              </Link>
+            </Button>
+            <Button asChild variant="link" className="mt-2 px-0">
+              <Link to="/dentist-sector-105-noida">
+                Dentist in Sector 105, Noida <ArrowRight />
               </Link>
             </Button>
           </div>
